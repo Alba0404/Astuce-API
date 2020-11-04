@@ -1,7 +1,7 @@
 package fr.alba0404.astuce.api.errors;
 
-import fr.alba0404.astuce.api.Line;
-import fr.alba0404.astuce.api.Station;
+import fr.alba0404.astuce.api.enums.Line;
+import fr.alba0404.astuce.api.enums.Station;
 
 @SuppressWarnings("serial")
 public class StationNotOnLineException extends Exception {

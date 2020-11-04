@@ -1,7 +1,11 @@
 package fr.alba0404.astuce.api;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import fr.alba0404.astuce.api.enums.Line;
+import fr.alba0404.astuce.api.enums.Station;
 import fr.alba0404.astuce.api.errors.StationNotOnLineException;
 
 /**
@@ -19,13 +23,6 @@ public class Astuce_API {
 		
 		int t = getNext(Line.F1, Station._14_JUILLET_BOULINGRIN);
 		System.out.println(t);
-		/*
-		System.out.println(Line.METRO.toString());
-		System.out.println("Braque: " + getNext(Line.F1, Station.BOULINGRIN_BRAQUE));
-		System.out.println("Braque: " + getNext(Line.METRO, Station.BOULINGRIN_BRAQUE));
-		System.out.println("Technopole: " + getNext(Line.METRO, Station.BOULINGRIN_TECHNOPOLE));
-		System.out.println("Boulingrin: " + getNext(Line.METRO, Station.BOULINGRIN_BOULINGRIN));
-		*/
 	}
 	
 	/**
@@ -39,7 +36,7 @@ public class Astuce_API {
 	public static int getNext(Line line, Station station) throws StationNotOnLineException{
 		int time = -1;
 		
-		if(!station.getLine().contains(line)) throw new StationNotOnLineException(station, line);
+		if(!station.getLines().contains(line)) throw new StationNotOnLineException(station, line);
 		
 		String request = "destinations=%7B%221%22%3A%22" + station.getDestination()
 						+ "%22%7D&stopId=" + station.getId()
@@ -53,6 +50,20 @@ public class Astuce_API {
 		}
 		
 		return time;
+	}
+	
+	/**
+	 * Return stations of a line.
+	 * @param line The line you want the stations.
+	 * @return A list of stations of this line.
+	 */
+	public static List<Station> getStations(Line line) {
+		List<Station> stations = new ArrayList<Station>();
+		for(Station s : Station.values()) {
+			//Sens = 2 car deux branches dans l'autre sens
+			if(s.getLines().contains(line) && s.getSens() == 2) stations.add(s);
+		}
+		return stations;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package fr.alba0404.astuce.api;
+package fr.alba0404.astuce.api.enums;
 
 import java.util.Arrays;
 import java.util.List;
@@ -98,12 +98,12 @@ public enum Station {
 		this.destination = d;
 	}
 	
-	List<Line> getLine() { return Arrays.asList(line); }
+	public List<Line> getLines() { return Arrays.asList(line); }
 	
-	int getSens() { return sens; }
+	public int getSens() { return sens; }
 	
-	int getId() { return id; }
+	public int getId() { return id; }
 	
-	String getDestination() { return destination; }
+	public String getDestination() { return destination; }
 
 }

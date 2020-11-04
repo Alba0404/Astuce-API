@@ -1,4 +1,4 @@
-package fr.alba0404.astuce.api;
+package fr.alba0404.astuce.api.enums;
 
 /**
  * All lines of the Astuce transport network.
@@ -63,7 +63,7 @@ public enum Line {
 		this.lineId = i;
 	}
 	
-	int getId() { return lineId; }
+	public int getId() { return lineId; }
 	
 
 }
