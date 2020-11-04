@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"fr.alba0404.astuce.api"},{"l":"fr.alba0404.astuce.api.errors"}];updateSearchResults();
