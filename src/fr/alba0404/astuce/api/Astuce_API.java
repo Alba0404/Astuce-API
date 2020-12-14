@@ -10,8 +10,9 @@ import fr.alba0404.astuce.api.errors.StationNotOnLineException;
 
 /**
  * API for the transport network Astuce in Rouen Metropole (FR).
+ * 
  * @author Alba0404
- * @version 1.0
+ * @version 0.1
  *
  */
 public class Astuce_API {
@@ -19,15 +20,22 @@ public class Astuce_API {
 	//String urlParameters = "destinations=%7B%221%22%3A%22Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY%22%7D&stopId=102154&lineId=175&sens=1";	//Vers Technopole
 	//String urlParameters = "destinations=%7B%221%22%3A%22Boulingrin+ROUEN%22%7D&stopId=102155&lineId=175&sens=2";	//Vers Boulingrin
 	
+	/**
+	 * Just for testing.
+	 * @param args
+	 * @throws StationNotOnLineException
+	 */
 	public static void main(String[] args) throws StationNotOnLineException {
 		
-		int t = getNext(Line.F1, Station._14_JUILLET_BOULINGRIN);
+		int t = getNext(Line.METRO, Station._14_JUILLET_BOULINGRIN);
 		System.out.println(t);
 	}
+	
 	
 	/**
 	 * Return the time in minute before the next transport. <br/>
 	 * Return -1 if no transport, -2 and a message when there is an error.
+	 * 
 	 * @param line The line you want the next transport.
 	 * @param station The station on this line (1 for each direction).
 	 * @return The time in minute before the next transport.
@@ -54,6 +62,7 @@ public class Astuce_API {
 	
 	/**
 	 * Return stations of a line.
+	 * 
 	 * @param line The line you want the stations.
 	 * @return A list of stations of this line.
 	 */
