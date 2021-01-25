@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * All stations of the Astuce transport network.
+ * 
  * @author Alba0404
  *
  */
@@ -98,12 +99,40 @@ public enum Station {
 		this.destination = d;
 	}
 	
+	
+	
+	/**
+	 * Getter for lines that pass through this station
+	 * 
+	 * @return A list of stations that pass through the station.
+	 */
 	public List<Line> getLines() { return Arrays.asList(line); }
 	
+	
+	
+	/**
+	 * Get the direction of the station on the line.
+	 *  
+	 * @return The direction (1 or 2)
+	 */
 	public int getSens() { return sens; }
 	
+	
+	
+	/**
+	 * Get the station's id.
+	 * 
+	 * @return The id of the station.
+	 */
 	public int getId() { return id; }
 	
+	
+	
+	/**
+	 * Get the destination/terminus of the main line of the station.
+	 * 
+	 * @return The destination.
+	 */
 	public String getDestination() { return destination; }
 
 }

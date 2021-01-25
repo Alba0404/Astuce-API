@@ -2,6 +2,7 @@ package fr.alba0404.astuce.api.enums;
 
 /**
  * All lines of the Astuce transport network.
+ * 
  * @author Alba0404
  *
  */
@@ -63,6 +64,12 @@ public enum Line {
 		this.lineId = i;
 	}
 	
+	
+	/**
+	 * Get the id of the station.
+	 * 
+	 * @return The id of the station.
+	 */
 	public int getId() { return lineId; }
 	
 
