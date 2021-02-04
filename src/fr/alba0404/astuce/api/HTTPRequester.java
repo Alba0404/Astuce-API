@@ -67,6 +67,7 @@ class HTTPRequester {
         in.close();
         con.disconnect();
 		
+        if(times.size() == 0) times.add(-1);
         return times;
 	}
 

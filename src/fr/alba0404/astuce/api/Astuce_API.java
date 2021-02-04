@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.alba0404.astuce.api.enums.Line;
-import fr.alba0404.astuce.api.enums.Station;
+import fr.alba0404.astuce.api.enums.Lines;
+import fr.alba0404.astuce.api.enums.Stations;
 import fr.alba0404.astuce.api.errors.StationNotOnLineException;
 
 /**
@@ -20,37 +20,32 @@ public class Astuce_API {
 	//String urlParameters = "destinations=%7B%221%22%3A%22Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY%22%7D&stopId=102154&lineId=175&sens=1";	//Vers Technopole
 	//String urlParameters = "destinations=%7B%221%22%3A%22Boulingrin+ROUEN%22%7D&stopId=102155&lineId=175&sens=2";	//Vers Boulingrin
 	
+
 	/**
-	 * Just for testing.
-	 * @param args Not used.
-	 * @throws StationNotOnLineException Useful to see errors to test.
+	 * Useless constructor
 	 */
-	public static void main(String[] args) throws StationNotOnLineException {
-		int t = getNext(Line.METRO, Station._14_JUILLET_BOULINGRIN);
-		System.out.println(t);
-		System.out.println(getStations(Line.T4));
-		
-	}
-	
+	public Astuce_API() {}
 	
 	/**
 	 * Return the time in minute before the next transport.
 	 * Return -1 if no transport, -2 and a message when there is an error.
 	 * 
 	 * @param line The line you want the next transport.
-	 * @param station The station on this line (1 for each direction).
+	 * @param station The station on this line.
+	 * @param sens The direction you want to go.
 	 * @return The time in minute before the next transport (-1 if nothing, -2 if error).
 	 * @throws StationNotOnLineException If the station you specified is not on the line.
 	 */
-	public static int getNext(Line line, Station station) throws StationNotOnLineException{
+	public int getNext(Lines line, Stations station, int sens) throws StationNotOnLineException{
 		int time = -1;
 		
 		if(!station.getLines().contains(line)) throw new StationNotOnLineException(station, line);
 		
-		String request = "destinations=%7B%221%22%3A%22" + station.getDestination()
-						+ "%22%7D&stopId=" + station.getId()
+		String request = "destinations=%7B%221%22%3A%22" + line.getTerminus(sens)
+						+ "%22%7D&stopId=" + station.getPhysicalIds(sens, line)
 						+ "&lineId=" + line.getId()
-						+ "&sens=" + station.getSens();
+						+ "&sens=" + sens;
+		System.out.println(request);
 		try {
 			time = HTTPRequester.requestTime(request, 1).get(0);
 		} catch (IOException e) {
@@ -69,11 +64,10 @@ public class Astuce_API {
 	 * @param line The line you want the stations.
 	 * @return A list of stations of this line.
 	 */
-	public static List<Station> getStations(Line line) {
-		List<Station> stations = new ArrayList<Station>();
-		for(Station s : Station.values()) {
-			//Sens = 2 car deux branches dans l'autre sens pour le METRO donc on prend ce sens pour tous
-			if(s.getLines().contains(line) && s.getSens() == 2) stations.add(s);
+	public List<Stations> getStations(Lines line) {
+		List<Stations> stations = new ArrayList<Stations>();
+		for(Stations s : Stations.values()) {
+			if(s.getLines().contains(line)) stations.add(s);
 		}
 		return stations;
 	}

@@ -4,7 +4,8 @@ package fr.alba0404.astuce.api.enums;
  * All lines of the Astuce transport network.
  * 
  * @author Alba0404
- *
+ * @version 1.0
+ * @deprecated
  */
 public enum Line {
 	

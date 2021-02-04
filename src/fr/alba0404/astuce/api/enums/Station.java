@@ -7,7 +7,8 @@ import java.util.List;
  * All stations of the Astuce transport network.
  * 
  * @author Alba0404
- *
+ * @version 1.0
+ * @deprecated
  */
 public enum Station {
 	
