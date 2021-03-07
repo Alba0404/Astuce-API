@@ -4,136 +4,109 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * All stations of the Astuce transport network.
+ * Stations of the Astuce transport network;
  * 
  * @author Alba0404
- * @version 1.0
- * @deprecated
+ * @version 2.0
  */
 public enum Station {
 	
+	//Ok
+	ABATTOIRS("abattoirs", 246, new int[][] { {100666, 100667} }, new Line[] {Line._32}),
+	ABBAYE_DE_ST_MARTIN_DE_BOSCHERVILLE("abbaye-de-saint-martin-de-boscherville", 1322, new int[][] { {} }, new Line[] {}),
+	ABBESSES("abbesses", 1488, new int[][] { {} }, new Line[] {}),
+	ACHAVANNE("achavanne", 8, new int[][] { {100017, 100018} }, new Line[] {Line._13}),
+	ADENAUER("adenauer", 9, new int[][] { {100019, 100020} }, new Line[] {Line._40}),
+	AEROPORT("aeroport", 1489, new int[][] {{}}, new Line[] {}),
+	ALLEE_DE_L_OREE_DU_BOIS("allee-de-loree-du-bois", 1585, new int[][] {{}}, new Line[] {}),
+	ALLEE_DES_DEUX_FERMES("allee-des-deux-fermes", 1586, new int[][] {{}}, new Line[] {}),
+	ALLEE_DE_PEUPLIERS("allee-des-peupliers", 24, new int[][] { {100054, 100055} }, new Line[] {Line._39}),
+	
+	GARE_RUE_VERTE("gare-rue-verte", 314, new int[][] { {102210, 102537}, {102555, 102556}, {102555, 102556}, {102555, 102556} }, new Line[] {Line.T4, Line.F2, Line._8, Line._11}),
+	
 	//========================================
 	//METRO
-	BOULINGRIN_TECHNOPOLE(new Line[]{Line.METRO, Line.T4, Line.F2, Line._22, Line._40, Line.t53}, 1, 100191, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY%22%2C%222%22%3A%22Georges+Braque+GRAND+QUEVILLY"),
-	BOULINGRIN_BRAQUE(new Line[]{Line.METRO, Line.T4, Line.F2, Line._22, Line._40, Line.t53}, 1, 100191, "Georges+Braque+GRAND+QUEVILLY"), //= technopole
-	BOULINGRIN_BOULINGRIN(new Line[]{Line.METRO, Line.T4, Line.F2, Line._22, Line._40, Line.t53}, 2, 100191, "Boulingrin+ROUEN"), //Ok
-	BEAUVOISINE_TECHNOPOLE(new Line[]{Line.METRO, Line.T4, Line.F1, Line._6, Line._20}, 1, 10124, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	BEAUVOISINE_BRAQUE(new Line[]{Line.METRO, Line.T4, Line.F1, Line._6, Line._20}, 1, 100124, "Georges+Braque+GRAND+QUEVILLY"),
-	BEAUVOISINE_BOULINGRIN(new Line[]{Line.METRO, Line.T4, Line.F1, Line._6, Line._20}, 2, 100125, "Boulingrin+ROUEN"), //Ok
-	GARE_RUE_VERTE_TECHNOPOLE(new Line[]{Line.METRO, Line.T4, Line.F2, Line._8, Line._11}, 1, 10872, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	GARE_RUE_VERTE_BRAQUE(new Line[]{Line.METRO, Line.T4, Line.F2, Line._8, Line._11}, 1, 100872, "Georges+Braque+GRAND+QUEVILLY"),
-	GARE_RUE_VERTE_BOULINGRIN(new Line[]{Line.METRO, Line.T4, Line.F2, Line._8, Line._11}, 2, 100873, "Boulingrin+ROUEN"), //Ok
-	PALAIS_DE_JUSTICE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101065, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	PALAIS_DE_JUSTICE_BRAQUE(new Line[]{Line.METRO}, 1, 101065, "Georges+Braque+GRAND+QUEVILLY"),
-	PALAIS_DE_JUSTICE_BOULINGRIN(new Line[]{Line.METRO}, 2, 101066, "Boulingrin+ROUEN"), //Ok
-	THEATRE_DES_ARTS_TECHNOPOLE(new Line[]{Line.METRO, Line.T1, Line.T2, Line.T3, Line.F3, Line.F5, Line._8, Line._32, Line._33, Line._34}, 1, 101987, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	THEATRE_DES_ARTS_BRAQUE(new Line[]{Line.METRO, Line.T1, Line.T2, Line.T3, Line.F3, Line.F5, Line._8, Line._32, Line._33, Line._34}, 1, 101987, "Georges+Braque+GRAND+QUEVILLY"),
-	THEATRE_DES_ARTS_BOULINGRIN(new Line[]{Line.METRO, Line.T1, Line.T2, Line.T3, Line.F3, Line.F5, Line._8, Line._32, Line._33, Line._34}, 2, 101988, "Boulingrin+ROUEN"), //Ok
-	JOFFRE_MUTUALITE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101031, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	JOFFRE_MUTUALITE_BRAQUE(new Line[]{Line.METRO}, 1, 101031, "Georges+Braque+GRAND+QUEVILLY"),
-	JOFFRE_MUTUALITE_BOULINGRIN(new Line[]{Line.METRO}, 2, 101032, "Boulingrin+ROUEN"), //Ok
-	SAINT_SEVER_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101957, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	SAINT_SEVER_BRAQUE(new Line[]{Line.METRO}, 1, 101957, "Georges+Braque+GRAND+QUEVILLY"),
-	SAINT_SEVER_BOULINGRIN(new Line[]{Line.METRO}, 2, 101958, "Boulingrin+ROUEN"), //Ok
+	//Ok
+	BOULINGRIN("boulingrin", 71, new int[][] { {100191, 100191, 100191}, {100197, 100197}, {100194, 100192}, {100193, 100193}, {100195, 100195}, {100196, 100196}}, new Line[]{Line.METRO, Line.T4, Line.F2, Line._22, Line._40, Line.t53}),
+	BEAUVOISINE("beauvoisine", 979, new int[][] { {100124, 100125}, {102189, 102530}, {100119, 100120}, {100118, 100118}, {100119, 100121} }, new Line[]{Line.METRO, Line.T4, Line.F1, Line._6, Line._20}),
+	GARE_RUE_VERTE_METRO("gare-rue-verte-quai-station", 1368, new int[][] { {100872, 100873} }, new Line[]{Line.METRO}),
+	PALAIS_DE_JUSTICE("palais-de-justice", 386, new int[][] { {101065, 101066}, {101067, 101068} }, new Line[]{Line.METRO, Line._8}),
+	THEATRE_DES_ARTS("theatre-des-arts", 716, new int[][] { {101987, 101988}, {101989, 101990}, {101989, 101990}, {101989, 101990}, {101981, 101981}, {101985, 101985}, {101983, 101984}, {100927, 100927}, {100927, 100927}, {102471, 102471}}, new Line[]{Line.METRO, Line.T1, Line.T2, Line.T3, Line.F3, Line.F5, Line._8, Line._32, Line._33, Line._34}),
+	JOFFRE_MUTUALITE("joffre-mutualite", 375, new int[][] { {101031, 101032}, {102457, 102456} }, new Line[]{Line.METRO, Line._34}),
+	SAINT_SEVER("saint-sever", 706, new int[][] { {101957, 101958}}, new Line[]{Line.METRO}),
 	
-	EUROPE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 100769,"Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	EUROPE_BOULINGRIN(new Line[]{Line.METRO}, 2, 100770, "Boulingrin+ROUEN"),
-	HONORE_DE_BALZAC_TECHNOPOLE(new Line[]{Line.METRO}, 1, 100089, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	HONORE_DE_BALZAC_BOULINGRIN(new Line[]{Line.METRO}, 2, 100090, "Boulingrin+ROUEN"),
-	VOLTAIRE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 102154, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	VOLTAIRE_BOULINGRIN(new Line[]{Line.METRO}, 2, 102155, "Boulingrin+ROUEN"),
-	GARIBALDI_TECHNOPOLE(new Line[]{Line.METRO}, 1, 100874, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	GARIBALDI_BOULINGRIN(new Line[]{Line.METRO}, 2, 100875, "Boulingrin+ROUEN"),
-	HDV_SOTTEVILLE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101921, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	HDV_SOTTEVILLE_BOULINGRIN(new Line[]{Line.METRO}, 2, 101922, "Boulingrin+ROUEN"),
-	_14_JUILLET_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101051, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	_14_JUILLET_BOULINGRIN(new Line[]{Line.METRO}, 2, 101052, "Boulingrin+ROUEN"),
-	JEAN_ZAY_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101020, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	JEAN_ZAY_BOULINGRIN(new Line[]{Line.METRO}, 2, 101021, "Boulingrin+ROUEN"),
-	TOIT_FAMILIAL_TECHNOPOLE(new Line[]{Line.METRO}, 1, 100783, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	TOIT_FAMILIAL_BOULINGRIN(new Line[]{Line.METRO}, 2, 100784, "Boulingrin+ROUEN"),
-	CHAMP_DE_COURSE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 100525, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	CHAMP_DE_COURSE_BOULINGRIN(new Line[]{Line.METRO}, 2, 100526, "Boulingrin+ROUEN"),
-	ERNEST_RENAN_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101684, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	ERNEST_RENAN_BOULINGRIN(new Line[]{Line.METRO}, 2, 101685, "Boulingrin+ROUEN"),
-	LE_PARC_TECHNOPOLE(new Line[]{Line.METRO}, 1, 101480, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	LE_PARC_BOULINGRIN(new Line[]{Line.METRO}, 2, 101481, "Boulingrin+ROUEN"),
-	MARYSE_BASTIE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 100106, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	MARYSE_BASTIE_BOULINGRIN(new Line[]{Line.METRO}, 2, 100107, "Boulingrin+ROUEN"),
-	TECHNOPOLE_TECHNOPOLE(new Line[]{Line.METRO}, 1, 102092, "Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY"),
-	TECHNOPOLE_BOULINGRIN(new Line[]{Line.METRO}, 2, 102093, "Boulingrin+ROUEN"),
+	//OK
+	EUROPE("europe", 209, new int[][] {{100769, 100770}, {100771, 100772} }, new Line[]{Line.METRO, Line._6}),
+	HONORE_DE_BALZAC("honore-de-balzac", 38, new int[][] {{100089,100090}}, new Line[]{Line.METRO}),
+	VOLTAIRE("voltaire", 780, new int[][] {{102154, 102155}}, new Line[]{Line.METRO}),
+	GARIBALDI("garibaldi", 317, new int[][] {{100874, 100875}}, new Line[]{Line.METRO}),
+	HDV_SOTTEVILLE("hotel-de-ville-de-sotteville", 692, new int[][] { {101921, 101922}, {101918, 101918}, {101920, 101919}, {101920, 101919}}, new Line[]{Line.METRO, Line.F3, Line._41, Line.t54}),
+	_14_JUILLET("14-juillet", 383, new int[][] { {101051, 101052}}, new Line[]{Line.METRO}),
+	JEAN_ZAY("jean-zay", 370, new int[][] { {101020, 101021}}, new Line[]{Line.METRO}),
+	TOIT_FAMILIAL("toit-familial", 284, new int[][] { {100783, 100784}}, new Line[]{Line.METRO}),
+	CHAMP_DE_COURSE("champ-de-courses", 193, new int[][] { {100525, 100526}}, new Line[]{Line.METRO}),
+	ERNEST_RENAN("ernest-renan", 606, new int[][] { {101684, 101685}, {101682, 101683} }, new Line[]{Line.METRO, Line._42}),
+	LE_PARC("le-parc", 534, new int[][] { {101480, 101481}}, new Line[]{Line.METRO}),
+	MARYSE_BASTIE("maryse-bastie", 44, new int[][] { {100106, 100107}}, new Line[]{Line.METRO}),
+	TECHNOPOLE("technopole", 754, new int[][] { {102092, 102093}, {102088, 102089} }, new Line[]{Line.METRO, Line._27}),
 	
-	AVENUE_DE_CAEN_BRAQUE(new Line[]{Line.METRO}, 1, 100078, "Georges+Braque+GRAND+QUEVILLY"),
-	AVENUE_DE_CAEN_BOULINGRIN(new Line[]{Line.METRO}, 2, 100079, "Boulingrin+ROUEN"),
-	JEAN_JAURES_BRAQUE(new Line[]{Line.METRO}, 1, 101009, "Georges+Braque+GRAND+QUEVILLY"),
-	JEAN_JAURES_BOULINGRIN(new Line[]{Line.METRO}, 2, 101010, "Boulingrin+ROUEN"),
-	FRANCOIS_TRUFFAUT_BRAQUE(new Line[]{Line.METRO}, 1, 102086, "Georges+Braque+GRAND+QUEVILLY"),
-	FRANCOIS_TRUFFAUT_BOULINGRIN(new Line[]{Line.METRO}, 2, 102087, "Boulingrin+ROUEN"),
-	PLACE_DU_8_MAI_BRAQUE(new Line[]{Line.METRO}, 1, 100000, "Georges+Braque+GRAND+QUEVILLY"),
-	PLACE_DU_8_MAI_BOULINGRIN(new Line[]{Line.METRO}, 2, 100001, "Boulingrin+ROUEN"),
-	SAINT_JULIEN_BRAQUE(new Line[]{Line.METRO}, 1, 101059, "Georges+Braque+GRAND+QUEVILLY"),
-	SAINT_JULIEN_BOULINGRIN(new Line[]{Line.METRO}, 2, 101060, "Boulingrin+ROUEN"),
-	CHARLES_DE_GAULLE_BRAQUE(new Line[]{Line.METRO}, 1, 100363, "Georges+Braque+GRAND+QUEVILLY"),
-	CHARLES_DE_GAULLE_BOULINGRIN(new Line[]{Line.METRO}, 2, 100364, "Boulingrin+ROUEN"),
-	PROVINCES_BRAQUE(new Line[]{Line.METRO}, 1, 101618, "Georges+Braque+GRAND+QUEVILLY"),
-	PROVINCES_BOULINGRIN(new Line[]{Line.METRO}, 2, 101619, "Boulingrin+ROUEN"),
-	JF_KENNEDY_BRAQUE(new Line[]{Line.METRO}, 1, 101071, "Georges+Braque+GRAND+QUEVILLY"),
-	JF_KENNEDY_BOULINGRIN(new Line[]{Line.METRO}, 2, 101072, "Boulingrin+ROUEN"),
-	LEON_BLUM_BRAQUE(new Line[]{Line.METRO}, 1, 101132, "Georges+Braque+GRAND+QUEVILLY"),
-	LEON_BLUM_BOULINGRIN(new Line[]{Line.METRO}, 2, 101133, "Boulingrin+ROUEN"),
-	PAUL_CEZANNE_BRAQUE(new Line[]{Line.METRO}, 1, 100332, "Georges+Braque+GRAND+QUEVILLY"),
-	PAUL_CEZANNE_BOULINGRIN(new Line[]{Line.METRO}, 2, 100333, "Boulingrin+ROUEN"),	
-	GEORGES_BRAQUE_BRAQUE(new Line[]{Line.METRO}, 1, 100204, "Georges+Braque+GRAND+QUEVILLY"),
-	GEORGES_BRAQUE_BOULINGRIN(new Line[]{Line.METRO}, 2, 100205, "Boulingrin+ROUEN");
+	//A faire
+	AVENUE_DE_CAEN("avenue-de-caen", 34, new int[][] { {100078, 100079}}, new Line[]{Line.METRO}),
+	JEAN_JAURES("jean-jaures", 1101, new int[][] { {101009, 101010}}, new Line[]{Line.METRO}),
+	FRANCOIS_TRUFFAUT("francois-truffaut", 753, new int[][] { {102086, 102087}}, new Line[]{Line.METRO}),
+	PLACE_DU_8_MAI("place-du-8-mai", 1, new int[][] { {100000, 100001}, {100002, 100003} }, new Line[]{Line.METRO, Line._41}),
+	SAINT_JULIEN("saint-julien", 385, new int[][] { {101059, 101060}}, new Line[]{Line.METRO}),
+	CHARLES_DE_GAULLE("charles-de-gaulle", 136, new int[][] { {100363, 100364}}, new Line[]{Line.METRO}),
+	PROVINCES("provinces", 1399, new int[][] { {101618, 101619}}, new Line[]{Line.METRO}),
+	JF_KENNEDY("jf-kennedy", 388, new int[][] { {101071, 101072}}, new Line[]{Line.METRO}),
+	LEON_BLUM("leon-blum", 411, new int[][] { {101132, 101133}}, new Line[]{Line.METRO}),
+	PAUL_CEZANNE("paul-cezanne", 123, new int[][] { {100332, 100333}}, new Line[]{Line.METRO}),
+	GEORGES_BRAQUE("georges-braque", 74, new int[][] { {100204, 100205}}, new Line[]{Line.METRO});
 	//========================================
 	
-	
-	private Line[] line;
-	private int sens;
+	private String name;
 	private int id;
-	private String destination;
+	private int[][] pysicalIds;
+	private Line[] lines;
 	
-	private Station(Line[] l, int s, int i, String d) {
-		this.line = l;
-		this.sens = s;
-		this.id = i;
-		this.destination = d;
+	private Station(String name, int id, int[][] physicalIds, Line[] lines) {
+		this.name = name;
+		this.id = id;
+		this.pysicalIds = physicalIds;
+		this.lines = lines;
 	}
 	
-	
-	
 	/**
-	 * Getter for lines that pass through this station
+	 * Getter for the name of the station.
 	 * 
-	 * @return A list of stations that pass through the station.
+	 * @return The name of the station, used by the system.
 	 */
-	public List<Line> getLines() { return Arrays.asList(line); }
-	
-	
+	public final String getName() { return this.name; }
 	
 	/**
-	 * Get the direction of the station on the line.
-	 *  
-	 * @return The direction (1 or 2)
-	 */
-	public int getSens() { return sens; }
-	
-	
-	
-	/**
-	 * Get the station's id.
+	 * Getter for the id of the station.
 	 * 
 	 * @return The id of the station.
 	 */
-	public int getId() { return id; }
-	
-	
+	public final int getId() { return this.id; }
 	
 	/**
-	 * Get the destination/terminus of the main line of the station.
+	 * Get the physical id (the platform) of the station.
 	 * 
-	 * @return The destination.
+	 * @param sens The direction (1/2).
+	 * @param line The concerned line.
+	 * @return The physical id.
 	 */
-	public String getDestination() { return destination; }
+	public final int getPhysicalIds(int sens, Line line) { return this.pysicalIds[this.getLines().indexOf(line)][sens-1]; }
+	
+	/**
+	 * Getter for Liness which go to this station.
+	 * 
+	 * @return The list of Liness available in this station. 
+	 */
+	public final List<Line> getLines() { return Arrays.asList(lines); }
+	
+	@Override
+	public String toString() { return this.name; }
 
 }

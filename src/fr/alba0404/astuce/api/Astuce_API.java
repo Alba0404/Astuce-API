@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.alba0404.astuce.api.enums.Lines;
-import fr.alba0404.astuce.api.enums.Stations;
+import fr.alba0404.astuce.api.enums.Line;
+import fr.alba0404.astuce.api.enums.Station;
 import fr.alba0404.astuce.api.errors.StationNotOnLineException;
 
 /**
@@ -16,9 +16,6 @@ import fr.alba0404.astuce.api.errors.StationNotOnLineException;
  *
  */
 public class Astuce_API {
-	
-	//String urlParameters = "destinations=%7B%221%22%3A%22Technop%C3%B4le+SAINT-ETIENNE-DU-ROUVRAY%22%7D&stopId=102154&lineId=175&sens=1";	//Vers Technopole
-	//String urlParameters = "destinations=%7B%221%22%3A%22Boulingrin+ROUEN%22%7D&stopId=102155&lineId=175&sens=2";	//Vers Boulingrin
 	
 
 	/**
@@ -36,7 +33,7 @@ public class Astuce_API {
 	 * @return The time in minute before the next transport (-1 if nothing, -2 if error).
 	 * @throws StationNotOnLineException If the station you specified is not on the line.
 	 */
-	public int getNext(Lines line, Stations station, int sens) throws StationNotOnLineException{
+	public int getNext(Line line, Station station, int sens) throws StationNotOnLineException{
 		int time = -1;
 		
 		if(!station.getLines().contains(line)) throw new StationNotOnLineException(station, line);
@@ -64,9 +61,9 @@ public class Astuce_API {
 	 * @param line The line you want the stations.
 	 * @return A list of stations of this line.
 	 */
-	public List<Stations> getStations(Lines line) {
-		List<Stations> stations = new ArrayList<Stations>();
-		for(Stations s : Stations.values()) {
+	public List<Station> getStations(Line line) {
+		List<Station> stations = new ArrayList<Station>();
+		for(Station s : Station.values()) {
 			if(s.getLines().contains(line)) stations.add(s);
 		}
 		return stations;
