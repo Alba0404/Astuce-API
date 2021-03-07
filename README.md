@@ -10,21 +10,20 @@ Clic-droit sur le projet => *Properties* => *Java Build Path* => *Libraries* => 
 
 ## Usage
 ```java
-import fr.alba0404.astuce.api.Astuce_API;
-import fr.alba0404.astuce.api.enums.Line;
-import fr.alba0404.astuce.api.enums.Station;
-import fr.alba0404.astuce.api.errors.StationNotOnLineException;
+import fr.alba0404.astuce.api.*;
 
-int next = Astuce_API.getNext(Line.METRO, Station.VOLTAIRE_BOULINGRIN);	// Retourne le temps en minute avant le prochain transport
-									// sur la ligne de métro à l'arrêt Voltaire en direction de Boulingrin.
-									// peut lever l'exception StationNotOnLineException
+Astuce_API api = new Astuce_API();
+int next = api.getNext(Line.METRO, Station.VOLTAIRE, 2);	// Retourne le temps en minute avant le prochain transport
+									// sur la ligne de métro à l'arrêt Voltaire en direction de Boulingrin (2).
+									// peut lever l'exception StationNotOnLineException si la station indiquée
+									// ne se trouve pas sur la ligne.
 
-List<Station> stations = Astuce_API.getStations(Line.METRO); // Retourne une liste des stations se trouvant sur la ligne de métro.
+List<Station> stations = api.getStations(Line.METRO); // Retourne une liste des stations se trouvant sur la ligne de métro.
 
-Station s = stations.get(0);
+Station s = Station.BOULINGRIN
 List<Line> lines = s.getLines();		// Retourne une liste des lignes passant par cette station.
-int sens = s.getSens();				// Retourne le sens de la station sur la ligne sÃ©lectionnÃ©e (1 ou 2).
-int id = s.getid();				// Retourne un entier représentant l'id unique de la station sur le réseau.
+String name = s.getName();		// Retourne le nom de la station tel qu'utilisé par le réseau Astuce.
+int id = s.getId();				// Retourne un entier représentant l'id unique de la station sur le réseau.
 String destination = s.getDestination();	// Retourne la destination de la ligne de la station.
 
 ```
@@ -32,8 +31,8 @@ String destination = s.getDestination();	// Retourne la destination de la ligne 
 <br/>
 
 ## En cours... / In dev...
-- Ajout des stations autres que celles du métro.
-- ...
+- Finalisation de l'ajout des lignes et stations
+- Ajouter les lignes scolaires.
 
 <br/>
 
