@@ -42,7 +42,6 @@ public class Astuce_API {
 						+ "%22%7D&stopId=" + station.getPhysicalIds(sens, line)
 						+ "&lineId=" + line.getId()
 						+ "&sens=" + sens;
-		System.out.println(request);
 		try {
 			time = HTTPRequester.requestTime(request, 1).get(0);
 		} catch (IOException e) {

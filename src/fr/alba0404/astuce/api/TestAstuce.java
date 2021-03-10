@@ -24,7 +24,6 @@ public class TestAstuce {
 		int t = api.getNext(Line.METRO, Station.PLACE_DU_8_MAI, 2);
 		System.out.println(t);
 		System.out.println(Station._14_JUILLET);
-		System.out.println(api.getStations(Line._34));
 	}
 
 }

@@ -106,6 +106,7 @@ public enum Station {
 	 */
 	public final List<Line> getLines() { return Arrays.asList(lines); }
 	
+	
 	@Override
 	public String toString() { return this.name; }
 
