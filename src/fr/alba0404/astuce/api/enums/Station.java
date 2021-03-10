@@ -106,6 +106,19 @@ public enum Station {
 	 */
 	public final List<Line> getLines() { return Arrays.asList(lines); }
 	
+	/**
+	 * Get the station using its id.
+	 * 
+	 * @param id The id of the station you want.
+	 * @return The station with this id.
+	 */
+	public static final Station getStationById(int id) {
+		for(Station station : Station.values()) {
+			if(station.getId() == id) return station;
+		}
+		return null;
+	}
+	
 	
 	@Override
 	public String toString() { return this.name; }

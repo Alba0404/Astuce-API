@@ -81,5 +81,18 @@ public enum Line {
 	 * @return The terminus of this direction.
 	 */
 	public final String getTerminus(int sens) { return this.terminus[sens-1]; }
+	
+	/**
+	 * Get the line using its id.
+	 * 
+	 * @param id The id of the station you want.
+	 * @return The station with the id or null;
+	 */
+	public static final Line getLineById(int id) {
+		for(Line line : Line.values()) {
+			if(line.getId() == id) return line;
+		}
+		return null;
+	}
 
 }
