@@ -9,20 +9,22 @@ Clic-droit sur le projet => *Properties* => *Java Build Path* => *Libraries* => 
 <br/>
 
 ## Usage
+Javadoc disponible ici : [https://alba0404.github.io/Astuce-API/](https://alba0404.github.io/Astuce-API/)
+
 ```java
 import fr.alba0404.astuce.api.*;
 
 Astuce_API api = new Astuce_API();
 int next = api.getNext(Line.METRO, Station.VOLTAIRE, 2);	// Retourne le temps en minute avant le prochain transport
-									// sur la ligne de métro à l'arrêt Voltaire en direction de Boulingrin (2).
-									// peut lever l'exception StationNotOnLineException si la station indiquée
-									// ne se trouve pas sur la ligne.
+								// sur la ligne de métro à l'arrêt Voltaire en direction de Boulingrin (2).
+								// peut lever l'exception StationNotOnLineException si la station indiquée
+								// ne se trouve pas sur la ligne.
 
 List<Station> stations = api.getStations(Line.METRO); // Retourne une liste des stations se trouvant sur la ligne de métro.
 
 Station s = Station.BOULINGRIN
 List<Line> lines = s.getLines();		// Retourne une liste des lignes passant par cette station.
-String name = s.getName();		// Retourne le nom de la station tel qu'utilisé par le réseau Astuce.
+String name = s.getName();			// Retourne le nom de la station tel qu'utilisé par le réseau Astuce.
 int id = s.getId();				// Retourne un entier représentant l'id unique de la station sur le réseau.
 String destination = s.getDestination();	// Retourne la destination de la ligne de la station.
 
