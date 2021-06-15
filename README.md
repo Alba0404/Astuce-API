@@ -15,19 +15,28 @@ Javadoc disponible ici : [https://alba0404.github.io/Astuce-API/](https://alba04
 import fr.alba0404.astuce.api.*;
 
 Astuce_API api = new Astuce_API();
-int next = api.getNext(Line.METRO, Station.VOLTAIRE, 2);	// Retourne le temps en minute avant le prochain transport
-								// sur la ligne de métro à l'arrêt Voltaire en direction de Boulingrin (2).
-								// peut lever l'exception StationNotOnLineException si la station indiquée
-								// ne se trouve pas sur la ligne.
+int next = api.getNext(Line.METRO, Station.VOLTAIRE, 2);  // Retourne le temps en minute avant le prochain transport
+                                                          // sur la ligne de métro à l'arrêt Voltaire en direction de Boulingrin (2).
+                                                          // peut lever l'exception StationNotOnLineException si la station indiquée
+                                                          // ne se trouve pas sur la ligne.
 
-List<Station> stations = api.getStations(Line.METRO); // Retourne une liste des stations se trouvant sur la ligne de métro.
+List<Station> stations = api.getStations(Line.METRO);  // Retourne une liste des stations se trouvant sur la ligne de métro.
 
-Station s = Station.BOULINGRIN
-List<Line> lines = s.getLines();		// Retourne une liste des lignes passant par cette station.
-String name = s.getName();			// Retourne le nom de la station tel qu'utilisé par le réseau Astuce.
-int id = s.getId();				// Retourne un entier représentant l'id unique de la station sur le réseau.
-String destination = s.getDestination();	// Retourne la destination de la ligne de la station.
+Station.values();                 // Retourne un tableau de toutes les stations.
+Station s = Station.BOULINGRIN;   // Récupère la station Boulingrin.
+List<Line> lines = s.getLines();  // Retourne une liste des lignes passant par cette station.
+String name = s.getName();        // Retourne le nom de la station tel qu'utilisé par le réseau Astuce.
+int id = s.getId();               // Retourne un entier représentant l'id unique de la station sur le réseau.
 
+Line.values();                           // Retourne un tableau de toutes les lignes.
+Line line = Line.getLineByName("Métro"); // Retourne la station dont le nom est "Métro".
+Line line = Lien.getLineById(175);       // Retourne la ligne ayant l'id 175. 
+
+Line line = Line.METRO;                  // Récupère la ligne de métro.
+String name = line.getName();            // Retourne le nom de la ligne.
+int id = line.getId();                   // Retourne l'id de la ligne.
+String[] terminus = line.getTerminus();  // Retourne un tableau des terminus.
+String t = line.getTerminus(1);          // Retourne le terminus n°1.
 ```
 
 <br/>
