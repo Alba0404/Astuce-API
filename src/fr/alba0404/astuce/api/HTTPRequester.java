@@ -30,10 +30,10 @@ class HTTPRequester {
 	
 	/**
 	 * Return the time result of the request.
-	 * @param request The request to send to the server for the time.
-	 * @param nb The number of schedule you want (max 4).
-	 * @return The time in result of the request.
-	 * @throws IOException F*ck errors ! I'm the boss ! (Errors manage in next step).
+	 * @param request		The request to send to the server for the time.
+	 * @param nb			The number of schedule you want (max 4).
+	 * @return				The time in result of the request.
+	 * @throws IOException	F*ck errors ! I'm the boss ! (Errors manage in the next step).
 	 */
 	static ArrayList<Integer> requestTime(String request, int nb) throws IOException {
 		if(nb > 4) nb = 4;	//There are 4 times in the page
@@ -56,6 +56,7 @@ class HTTPRequester {
         while ((inputLine = in.readLine()) != null) {
         	if(inputLine.contains("dans") && times.size() < nb) {
         		int i = inputLine.indexOf("dans");
+        		//Try to get a 2 digits number if fail => one digit number
         		try {
         			times.add(Integer.valueOf(inputLine.substring(i+11, i+13)));
         		}catch(Exception e) {

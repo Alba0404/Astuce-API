@@ -27,11 +27,11 @@ public class Astuce_API {
 	 * Return the time in minute before the next transport.
 	 * Return -1 if no transport, -2 and a message when there is an error.
 	 * 
-	 * @param line The line you want the next transport.
-	 * @param station The station on this line.
-	 * @param sens The direction you want to go.
-	 * @return The time in minute before the next transport (-1 if nothing, -2 if error).
-	 * @throws StationNotOnLineException If the station you specified is not on the line.
+	 * @param line							The line you want the next transport.
+	 * @param station						The station on this line.
+	 * @param sens							The direction you want to go.
+	 * @return 								The time in minute before the next transport (-1 if nothing, -2 if error).
+	 * @throws StationNotOnLineException	If the station you specified is not on the line.
 	 */
 	public int getNext(Line line, Station station, int sens) throws StationNotOnLineException{
 		int time = -1;
@@ -57,8 +57,8 @@ public class Astuce_API {
 	/**
 	 * Return stations of a line.
 	 * 
-	 * @param line The line you want the stations.
-	 * @return A list of stations of this line.
+	 * @param line	The line you want the stations.
+	 * @return		A list of stations of this line.
 	 */
 	public List<Station> getStations(Line line) {
 		List<Station> stations = new ArrayList<Station>();
