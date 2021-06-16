@@ -153,7 +153,7 @@ public enum Line {
 	/**
 	 * Ligne de bus régulière C (Bosc Tard <> Les Arches)
 	 */
-	C("C", 113, new String[]{"osc+Tard+SAINT-PIERRE-L%C3%88S-ELBEUF%22%2C%222%22%3A%22Li%C3%A9rout+SAINT-PIERRE-L%C3%88S-ELBEUF", "Les+Arches+ELBEUF"}),
+	C("C", 113, new String[]{"Bosc+Tard+SAINT-PIERRE-L%C3%88S-ELBEUF%22%2C%222%22%3A%22Li%C3%A9rout+SAINT-PIERRE-L%C3%88S-ELBEUF", "Les+Arches+ELBEUF"}),
 	/**
 	 * Ligne de bus régulière E (Mairie de Cléon <> Moulin Saint-Etienne)
 	 */
@@ -243,14 +243,40 @@ public enum Line {
 	public final String getTerminus(int sens) {
 		if(sens > 2) sens = 2;
 		if(sens < 1) sens = 1;
-		return this.terminus[sens-1]; }
+		return this.terminus[sens-1];
+	}
+	
+	/**
+	 * Get the terminus of the line in a readable format.
+	 * 
+	 * @param sens	The direction you want (1/2).
+	 * @return		The terminus of this direction (readable).
+	 */
+	public final String getDisplayTerminus(int sens) {
+		if(sens > 2) sens = 2;
+		if(sens < 1) sens = 1;
+		String t = convertString(this.terminus[sens-1]);
+		return t;
+	}
 	
 	/**
 	 * Get all terminus of the line.
 	 * 
-	 * @return	Terminus of the line.
+	 * @return The terminus table.
 	 */
 	public final String[] getTerminus() { return this.terminus; }
+	
+	/**
+	 * Get all terminus of the line in a readable table.
+	 * 
+	 * @return	Terminus of the line readable.
+	 */
+	public final String[] getDisplayTerminus() {
+		String[] t = new String[2];
+		t[0] = convertString(this.terminus[0]);
+		t[1] = convertString(this.terminus[1]);
+		return t;
+	}
 	
 	/**
 	 * Get the line using its id.
@@ -280,5 +306,23 @@ public enum Line {
 	
 	@Override
 	public String toString() { return this.name; }
-
+	
+	/**
+	 * Replace %char in the given String into UTF char.
+	 * 
+	 * @param s	The String to convert.
+	 * @return	The converted String.
+	 */
+	private static final String convertString(String s) {
+		s = s.replace("%22%2C%222%22%3A%22", " / ");
+		s = s.replace("+", " ");
+		s = s.replace("%C3%88", "È");
+		s = s.replace("%C3%89", "É");
+		s = s.replace("%C3%A2", "â");
+		s = s.replace("%C3%A8", "è");
+		s = s.replace("%C3%A9", "é");
+		s = s.replace("%C3%B4", "ô");
+		return s;
+	}
+	
 }
