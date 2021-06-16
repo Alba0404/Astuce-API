@@ -93,24 +93,24 @@ public enum Station {
 	/**
 	 * Get the physical id (the platform) of the station.
 	 * 
-	 * @param sens The direction (1/2).
-	 * @param line The concerned line.
-	 * @return The physical id.
+	 * @param sens	The direction (1/2).
+	 * @param line	The concerned line.
+	 * @return		The physical id.
 	 */
 	public final int getPhysicalIds(int sens, Line line) { return this.pysicalIds[this.getLines().indexOf(line)][sens-1]; }
 	
 	/**
-	 * Getter for Liness which go to this station.
+	 * Getter for Lines which go to this station.
 	 * 
-	 * @return The list of Liness available in this station. 
+	 * @return The list of lines available at this station. 
 	 */
 	public final List<Line> getLines() { return Arrays.asList(lines); }
 	
 	/**
 	 * Get the station using its id.
 	 * 
-	 * @param id The id of the station you want.
-	 * @return The station with this id.
+	 * @param id	The id of the station you want.
+	 * @return		The station with this id.
 	 */
 	public static final Station getStationById(int id) {
 		for(Station station : Station.values()) {
